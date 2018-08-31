@@ -25,13 +25,13 @@ class DetailActivity : AppCompatActivity() {
                     setImageResource(R.drawable.ic_launcher_background)
                 }.lparams(width = 100, height = 100)
                 textView {
-                    text = "Barcelona"
+                    text = resources.getString(R.string.club_barca)
                     id = R.id.tvTitle
                     textSize = 20f
                     textColor = Color.BLACK
                 }.lparams(matchParent, wrapContent)
                 textView {
-                    text = "Detail Barcelona"
+                    text = resources.getString(R.string.detail_barca)
                     id = R.id.tvDetail
                     textSize = 14f
                     textColor = Color.BLACK
@@ -49,10 +49,10 @@ class DetailActivity : AppCompatActivity() {
         val intentClub: Club = intent.getParcelableExtra(CLUB)
         val imageClub = find<ImageView>(R.id.imgClub)
         val tvDetailClub = find<TextView>(R.id.tvDetail)
-        val tvJudul = find<TextView>(R.id.tvTitle)
+        val tvTitle = find<TextView>(R.id.tvTitle)
 
         Glide.with(this).load(intentClub.img_url).into(imageClub)
-        tvJudul.text = intentClub.name
+        tvTitle.text = intentClub.name
         tvDetailClub.text = intentClub.detail_club
     }
 }

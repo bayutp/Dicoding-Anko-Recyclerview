@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Recyclerview with anko</string>
+    <string name="club_barca">Barcelona Fc</string>
+    <string name="detail_barca">Detail Barcelona Fc</string>
     <string-array name="clubs">
         <item>Real Madrid</item>
         <item>Barcelona</item>

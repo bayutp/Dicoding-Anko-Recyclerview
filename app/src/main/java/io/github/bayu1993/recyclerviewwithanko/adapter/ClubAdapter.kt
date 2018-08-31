@@ -18,7 +18,7 @@ import org.jetbrains.anko.*
  * email : bayuteguhpamuji@gmail.com.
  */
 
-class ClubAdapter constructor(private val context: Context, private val items: List<Club>, private val listener: (Club) -> Unit) : RecyclerView.Adapter<ClubAdapter.ViewHolder>() {
+class ClubAdapter constructor(private val items: List<Club>, private val listener: (Club) -> Unit) : RecyclerView.Adapter<ClubAdapter.ViewHolder>() {
     class ViewHolderUI : AnkoComponent<Context> {
         override fun createView(ui: AnkoContext<Context>): View = with(ui) {
             linearLayout {
@@ -26,12 +26,12 @@ class ClubAdapter constructor(private val context: Context, private val items: L
                 lparams(width = matchParent, height = wrapContent)
                 imageView {
                     id = R.id.img_club
-                    setImageResource(R.drawable.ic_launcher_background)
+                    imageResource = R.drawable.ic_launcher_background
                 }.lparams(width = dip(50), height = dip(50))
 
                 textView {
                     id = R.id.tv_club_name
-                    text = "Barcelona Fc"
+                    text = resources.getString(R.string.club_barca)
                     textSize = 20f
                     textColor = Color.BLACK
                     topPadding = dip(10)
@@ -43,7 +43,7 @@ class ClubAdapter constructor(private val context: Context, private val items: L
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(ViewHolderUI().createView(AnkoContext.Companion.create(parent.context, false)))
+        return ViewHolder(ViewHolderUI().createView(AnkoContext.create(parent.context, false)))
     }
 
     override fun getItemCount(): Int {
